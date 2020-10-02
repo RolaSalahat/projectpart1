@@ -14,10 +14,14 @@ Given  these homes are contained in the system
     Then A list of homes that matches the price specification should be returned and printed on the console
    
    Scenario: Search home by placement
-   When I search about home by "CITY" as a placment
+   When I search about home by "VILLAGE" as a placment
    Then A list of homes that matches the placement specification should be returned and printed on the console
    
    Scenario: Search home by material
    When I search about home by "WOOD" material
    Then A list of homes that matches the material specification should be returned and printed on the console
+   
+    Scenario: Search about home with range of specific price
+    When I search about home with price between 150 to 600
+    Then A list of homes that matches the price range specification should be returned and printed on the console
    

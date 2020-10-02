@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class searchHomeSteps {
-	private Integer price;
+	private Integer price , price1 , price2;
 	private  java.util.List<Home> required_homes;
 	private String searchedByString;
 	private String homeType;
@@ -19,7 +19,7 @@ public class searchHomeSteps {
 	
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
-			System.out.println("Scenario"+ num++);
+			System.out.println("new Scenario");
 
 		    finder =new finderApp(data_table);
 		    //throw new io.cucumber.java.PendingException();
@@ -79,7 +79,7 @@ public class searchHomeSteps {
 		@Then("A list of homes that matches the placement specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesThePlacementSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 			for(int i=0;i<required_homes.size();i++) {
-				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
+				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString.toString()));
 		}
 			
 		}
@@ -107,9 +107,26 @@ public class searchHomeSteps {
 		
 		
 		
+		@When("I search about home with price between {int} to {int}")
+		public void iSearchAboutHomeWithRngaePrice(Integer int1 , Integer int2){
+		    // Write code here that turns the phrase above into concrete actions
+			this.price1=int1;
+			this.price2=int2;
+			required_homes=finder.FindBetweenRangePrice(int1.intValue(),int2.intValue());
+		   
+		}
+
+		@Then("A list of homes that matches the price range specification should be returned and printed on the console")
+		public void aListOfHomesThatMatchesTheRangepriceSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+		    // Write code here that turns the phrase above into concrete actions
+			for(int i=0;i<required_homes.size();i++) {
+		assertTrue((required_homes.get(i).getPrice()>this.price1) &&(required_homes.get(i).getPrice()<this.price2));
+		
+				
+		}
 		
 		
-		
+		}
 		
 		
 		

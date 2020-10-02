@@ -125,6 +125,20 @@ public class finderApp {
 		return this.required_homes;}
 
 	
+	public List<Home> FindBetweenRangePrice(Integer int1, Integer int2) {
+		required_homes=new ArrayList<Home>();
+		System.out.println("List of homes that cost between\""+Integer.toString(int1)+" to "+Integer.toString(int2)+"\" per month:");
+		for(int i=0;i<homesList.size();i++) {
+		if((homesList.get(i).getPrice()>int1.intValue())&&(homesList.get(i).getPrice()<int2.intValue())) {
+			required_homes.add(homesList.get(i));
+			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+		}
+		}
+		// TODO Auto-generated method stub
+		return this.required_homes;
+	}
+
+	
 	
 	
 	
