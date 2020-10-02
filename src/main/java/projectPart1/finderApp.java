@@ -138,6 +138,33 @@ public class finderApp {
 		return this.required_homes;
 	}
 
+	public List<Home> FindByBelowArea(Integer int1) {
+		// TODO Auto-generated method stub
+		required_homes=new ArrayList<Home>();
+		System.out.println("List of homes that its area below "+Integer.toString(int1)+ ":");
+		for(int i=0;i<homesList.size();i++) {
+			if(homesList.get(i).getArea()<int1.intValue()) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+			}
+		}
+		return this.required_homes;
+	}
+
+	public List<Home> FindBetweenRangeArea(Integer int1, Integer int2) {
+		// TODO Auto-generated method stub
+		required_homes=new ArrayList<Home>();
+		System.out.println("List of homes that have area between "+Integer.toString(int1)+" to "+Integer.toString(int2));
+		for(int i=0;i<homesList.size();i++) {
+		if((homesList.get(i).getArea()>int1.intValue())&&(homesList.get(i).getArea()<int2.intValue())) {
+			required_homes.add(homesList.get(i));
+			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+		}
+		}
+		// TODO Auto-generated method stub
+		return this.required_homes;
+	}
+
 	
 	
 	

@@ -16,6 +16,7 @@ public class searchHomeSteps {
 	private String homeType;
 	private int num=1;
 	private finderApp finder;
+	private Integer area , area1 , area2;
 	
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
@@ -128,9 +129,44 @@ public class searchHomeSteps {
 		
 		}
 		
+		@When("I search about home with area less than {int}")
+		public void iSearchAboutHomeByBelowArea(Integer int1){
+		    // Write code here that turns the phrase above into concrete actions
+			this.area=int1;
+			required_homes=finder.FindByBelowArea(int1);
+		   
+		}
+
+		@Then("A list of homes that matches the area specification should be returned and printed on the console")
+		public void aListOfHomesThatMatchesTheBelowAreaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+		    // Write code here that turns the phrase above into concrete actions
+			for(int i=0;i<required_homes.size();i++) {
+		assertTrue(required_homes.get(i).getArea()<=this.area);
+		
+				
+		}
+		}
+		
+		@When("I search about home with area between {int} to {int}")
+		public void iSearchAboutHomeWithRngaeArea(Integer int1 , Integer int2){
+		    // Write code here that turns the phrase above into concrete actions
+			this.area1=int1;
+			this.area2=int2;
+			required_homes=finder.FindBetweenRangeArea(int1.intValue(),int2.intValue());
+		   
+		}
+
+		@Then("A list of homes that matches the area range specification should be returned and printed on the console")
+		public void aListOfHomesThatMatchesTheRangeAreaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+		    // Write code here that turns the phrase above into concrete actions
+			for(int i=0;i<required_homes.size();i++) {
+		assertTrue((required_homes.get(i).getArea()>this.area1) &&(required_homes.get(i).getArea()<this.area2));
+		
+				
+		}
 		
 		
-		
+		}
 		
 		
 

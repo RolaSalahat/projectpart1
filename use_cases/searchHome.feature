@@ -25,3 +25,13 @@ Given  these homes are contained in the system
     When I search about home with price between 150 to 600
     Then A list of homes that matches the price range specification should be returned and printed on the console
    
+    Scenario: Search about home with less than a specific area
+    When I search about home with area less than 140
+    Then A list of homes that matches the area specification should be returned and printed on the console
+    
+    
+    Scenario: Search about home with range of specific area
+    When I search about home with area between 130 to 200
+    Then A list of homes that matches the area range specification should be returned and printed on the console
+    
+    
