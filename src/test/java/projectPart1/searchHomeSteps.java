@@ -20,6 +20,7 @@ public class searchHomeSteps {
 	private finderApp finder;
 	private Integer area , area1 , area2;
 	int length;
+	int Numberofbathrooms ; 
 	java.util.List<String> AnList = new ArrayList<String>();
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
@@ -246,9 +247,38 @@ public class searchHomeSteps {
 					assertTrue(required_homes.get(i).getAmenities().equals(AnList));
 							
 					}}
+			@When("I search about home with {int} bedrooms")
+			public void iSearchAboutHomeByNumberofbed(Integer int1) {
+			    // Write code here that turns the phrase above into concrete actions
+				this.Numberofbathrooms=int1;
+				required_homes=finder.FindByNumberofbedrooms(int1);
+			}
+
+			@Then("A list of homes that matches the bedrooms specification should be returned and printed on the console")
+			public void aListOfHomesThatMatchesTheNumberofbedroomsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+			    // Write code here that turns the phrase above into concrete actions
+				for(int i=0;i<required_homes.size();i++) {
+					assertTrue(required_homes.get(i).getNo_of_bedrooms()==this.Numberofbathrooms);
+			}
+			}
 
 
+			@When("I search about home with {int} bathrooms")
+			public void iSearchAboutHomeByNumberofbathrooms(Integer int1) {
+			    // Write code here that turns the phrase above into concrete actions
+				this.Numberofbathrooms=int1;
+				required_homes=finder.FindByNumberofbathrooms(int1);
+			}
 
+			@Then("A list of homes that matches the bathrooms specification should be returned and printed on the console")
+			public void aListOfHomesThatMatchesTheNumberofbathroomsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+			    // Write code here that turns the phrase above into concrete actions
+				for(int i=0;i<required_homes.size();i++) {
+					assertTrue(required_homes.get(i).getNo_of_bathrooms()==this.Numberofbathrooms);
+			}
+			}
+			
+			
 		
 		
 

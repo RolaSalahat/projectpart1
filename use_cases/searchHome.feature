@@ -46,6 +46,19 @@ Given  these homes are contained in the system
      
      
      
+       Scenario: Search about home by number of bedrooms
+     When I search about home with 4 bedrooms  
+     Then A list of homes that matches the bedrooms specification should be returned and printed on the console
+     
+     
+     
+       Scenario: Search about home by number of bathrooms
+     When I search about home with 2 bathrooms  
+     Then A list of homes that matches the bathrooms specification should be returned and printed on the console
+     
+     
+     
+     
      
      
     

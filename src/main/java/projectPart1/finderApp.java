@@ -213,6 +213,30 @@ public class finderApp {
 		return this.required_homes;
 	}
 
+	public List<Home> FindByNumberofbathrooms(Integer Numberofbathrooms) {
+		required_homes=new ArrayList<Home>();
+	System.out.println("List of homes that has Numberofbathrooms of  \""+Integer.toString(Numberofbathrooms)+"\" ");
+	for(int i=0;i<homesList.size();i++) {
+		if(homesList.get(i).getNo_of_bathrooms()==Numberofbathrooms.intValue()) {
+			required_homes.add(homesList.get(i));
+			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+		}
+	}
+	return this.required_homes;
+}
+
+	public List<Home> FindByNumberofbedrooms(Integer Numberofbedrooms) {
+		// TODO Auto-generated method stub
+		required_homes=new ArrayList<Home>();
+		System.out.println("List of homes that has Numberofbedrooms of  \""+Integer.toString(Numberofbedrooms)+"\" ");
+		for(int i=0;i<homesList.size();i++) {
+			if(homesList.get(i).getNo_of_bedrooms()==Numberofbedrooms.intValue()) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+			}
+		}
+		return this.required_homes;	}
+
 	
 	
 	
