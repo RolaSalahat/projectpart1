@@ -237,6 +237,29 @@ public class finderApp {
 		}
 		return this.required_homes;	}
 
+	public List<Home> FindByallow(String str) {
+		boolean allow;
+		if(str.equalsIgnoreCase("yes"))
+		{
+			
+			allow=true;
+			
+		}
+		else {
+			allow=false;
+		}
+		
+		required_homes=new ArrayList<Home>();
+		System.out.println("List of homes that has pets premisstion as  \""+str+"\" ");
+		for(int i=0;i<homesList.size();i++) {
+			if((homesList.get(i).isPets() && allow)||(!homesList.get(i).isPets() && !allow)) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+			}
+		}
+		return this.required_homes;
+	}
+
 	
 	
 	

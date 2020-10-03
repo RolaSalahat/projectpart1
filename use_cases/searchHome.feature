@@ -57,6 +57,9 @@ Given  these homes are contained in the system
      Then A list of homes that matches the bathrooms specification should be returned and printed on the console
      
      
+      Scenario: Search about home by number of  Allow Pets
+     When I search about home that "NO" allow pets  
+     Then A list of homes that matches Allow Pets specification should be returned and printed on the console
      
      
      

@@ -15,7 +15,8 @@ public class searchHomeSteps {
 	private Integer price , price1 , price2;
 	private  java.util.List<Home> required_homes;
 	private String searchedByString;
-	private String homeType;
+	private String homeType ;
+	boolean allow;
 	private int num=1;
 	private finderApp finder;
 	private Integer area , area1 , area2;
@@ -278,7 +279,29 @@ public class searchHomeSteps {
 			}
 			}
 			
-			
+			@When("I search about home that {string} allow pets")
+			public void iSearchAboutHomeAllowPets(String str) {
+			    // Write code here that turns the phrase above into concrete actions
+				
+				if(str.equalsIgnoreCase("yes"))
+				{
+					
+					allow=true;
+					
+				}
+				else {
+					allow=false;
+				}
+				required_homes=finder.FindByallow(str);
+			}
+
+			@Then("A list of homes that matches Allow Pets specification should be returned and printed on the console")
+			public void aListOfHomesThatMatchespetsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+			    // Write code here that turns the phrase above into concrete actions
+				for(int i=0;i<required_homes.size();i++) {
+					assertTrue((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
+			}
+			}
 		
 		
 
