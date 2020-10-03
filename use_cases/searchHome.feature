@@ -35,3 +35,17 @@ Given  these homes are contained in the system
     Then A list of homes that matches the area range specification should be returned and printed on the console
     
     
+     Scenario: Search about home by lease length
+     When I search about home with lease length "short term_6 months"
+    Then A list of homes that matches the lease length specification should be returned and printed on the console
+     
+     
+     Scenario: Search about home by Amenities
+     When I search about home with "GARAGEPARKING,FIREPLACE,ELEVATOR" as Amenities  
+     Then A list of homes that matches the Amenities specification should be returned and printed on the console
+     
+     
+     
+     
+     
+    

@@ -12,7 +12,7 @@ public class Home {
 	
 	private String placement;
 	private String material;
-	
+	String[] AmenitiesArray ;
 	
 	
 	public Home(int id,String type,String material,String placement,boolean pets,java.util.List<String> amenities_List,int price,int area,int bedrooms,int bathrooms,int leaselength) 
@@ -28,6 +28,12 @@ public class Home {
 		this.lease_length=leaselength;
 		this.amenities=amenities_List;
 		
+		int size =amenities.size();
+		 AmenitiesArray= new String[size];
+
+		for(int i=0;i<size;i++) {
+			AmenitiesArray[i]=amenities.get(i);
+		}
 			
 		}
 	
@@ -94,6 +100,10 @@ public class Home {
 	}
 
 
-	
+	public String[] getAmenitiesArray() {
+		
+		return AmenitiesArray;
+		
+	}
 
 }

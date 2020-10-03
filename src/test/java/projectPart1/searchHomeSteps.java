@@ -3,6 +3,8 @@ package projectPart1;
 import static org.junit.Assert.assertTrue;
 
 import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import io.cucumber.java.en.Given;
@@ -17,7 +19,8 @@ public class searchHomeSteps {
 	private int num=1;
 	private finderApp finder;
 	private Integer area , area1 , area2;
-	
+	int length;
+	java.util.List<String> AnList = new ArrayList<String>();
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
 			System.out.println("new Scenario");
@@ -80,7 +83,7 @@ public class searchHomeSteps {
 		@Then("A list of homes that matches the placement specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesThePlacementSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 			for(int i=0;i<required_homes.size();i++) {
-				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString.toString()));
+				assertTrue(required_homes.get(i).getPlacement().equalsIgnoreCase(searchedByString.toString()));
 		}
 			
 		}
@@ -100,7 +103,7 @@ public class searchHomeSteps {
 		@Then("A list of homes that matches the material specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheMaterialSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 			for(int i=0;i<required_homes.size();i++) {
-				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
+				assertTrue(required_homes.get(i).getMaterial().equalsIgnoreCase(searchedByString));
 		}
 			
 		}
@@ -167,6 +170,85 @@ public class searchHomeSteps {
 		
 		
 		}
+		
+		
+		@When("I search about home with lease length {string}")
+		public void iSearchAboutHomeByLeaseLength(String string) {
+		//	System.out.println("part1");
+
+			searchedByString = string;
+			String len = string;
+		
+			if(len.equalsIgnoreCase("short term_6 months"))
+				length=6;
+			else length=12;
+			required_homes = finder.searchByLeaseLength(string); // return list of homes
+		    // Write code here that turns the phrase above into concrete actions
+		    //throw new io.cucumber.java.PendingException();
+		}
+		
+		@Then("A list of homes that matches the lease length specification should be returned and printed on the console")
+		public void aListOfHomesThatMatchesTheLeaseLengthaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+		    // Write code here that turns the phrase above into concrete actions
+			for(int i=0;i<required_homes.size();i++) {
+		assertTrue(required_homes.get(i).getLease_length()==length);
+		
+				
+		}
+		
+		}
+		
+	/*	@When("I search about home with Amenities as {string}")
+		public void iSearchAboutHomeByAmenities(String string) {
+		//	System.out.println("part1");
+
+			searchedByString = string;
+			String str[]=string.split(",");
+			
+			AnList = Arrays.asList(str);
+			required_homes = finder.searchByAmenities(string); // return list of homes
+		    // Write code here that turns the phrase above into concrete actions
+		    //throw new io.cucumber.java.PendingException();
+		}
+		
+		
+		@Then("A list of homes that matches the Amenities specification should be returned and printed on the console")
+		public void aListOfHomesThatMatchesTheAmenitiesSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+		    // Write code here that turns the phrase above into concrete actions
+				AnList = Arrays.asList(str);
+			required_homes = finder.searchByAmenities(string); // return list of homes
+				
+		}
+		
+		}*/
+		
+		
+
+			@When("I search about home with {string} as Amenities")
+			public void iSearchAboutHomeWithAmenitiesAs(String string) {
+			    // Write code here that turns the phrase above into concrete actions
+			    //throw new io.cucumber.java.PendingException();
+				searchedByString = string;
+				String str[]=string.split(",");
+				AnList = Arrays.asList(str);
+				required_homes = finder.searchByAmenities(string); // return list of homes
+				
+			}
+
+
+	
+
+			@Then("A list of homes that matches the Amenities specification should be returned and printed on the console")
+			public void aListOfHomesThatMatchesTheAmenitiesSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
+			    // Write code here that turns the phrase above into concrete actions
+			   // throw new io.cucumber.java.PendingException();\
+				for(int i=0;i<required_homes.size();i++) {
+					assertTrue(required_homes.get(i).getAmenities().equals(AnList));
+							
+					}}
+
+
+
 		
 		
 
