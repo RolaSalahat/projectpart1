@@ -1,7 +1,5 @@
 package projectPart1;
 
-import java.awt.List;
-
 public class Home {
 	
 	
@@ -14,7 +12,10 @@ public class Home {
 	private String material;
 	String[] AmenitiesArray ;
 	
-	
+	public Home(int id,String type) {
+		this.id=id;
+		this.type=type;
+	}
 	public Home(int id,String type,String material,String placement,boolean pets,java.util.List<String> amenities_List,int price,int area,int bedrooms,int bathrooms,int leaselength) 
 		{ this.id=id;
 		this.placement=placement;
@@ -46,7 +47,8 @@ public class Home {
 				" Material = "+material+" Area = "+area+" price = "+price+
 				" bedrooms= "+no_of_bedrooms+" bathrooms= "+no_of_bathrooms+
 				" pets allowed  = "+pets+" type = "+type+
-				" leaselength = "+lease_length+" amenties = "+amenities.toString()+"]";
+				" leaselength = "+lease_length+" amenties = "+amenities.toString()+"]"
+				;
 	}
 	
 	

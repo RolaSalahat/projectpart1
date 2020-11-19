@@ -1,20 +1,32 @@
 package projectPart1;
+
+
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import projectPart1.Home;
+import projectPart1.WebEmailService;
+import projectPart1.belowSpecPrice;
+import projectPart1.bySpecPlacment;
+
 public class finderApp {
-	private List<Home> homesList=new ArrayList<Home>();
+	List<Home> homesList=new ArrayList<Home>();
 	private List<Home> required_homes;
-	
-	private List<String> amen_List=new ArrayList<String>();
+	private  WebEmailService emailService;
+	//private List<String> amen_List=new ArrayList<String>();
 	private Home home;
 	Integer price;
 
 	String amenities_array [];
+	
+	//public finderApp() {
+		
+
+//}
 	public finderApp(Map<String,String> data_table) {
 		int area;
 		int no_of_bedrooms;
@@ -65,7 +77,7 @@ public class finderApp {
 			
 			}
 			catch(Exception e) {
-				System.out.println("Oh!!");
+				System.out.println("exption");
 			}
 			
 			
@@ -75,128 +87,189 @@ public class finderApp {
           } //while end
 	} //constructer end
 	
+	
+	public void setEmailService(WebEmailService emailService) {
+		this.emailService = emailService;
+
+		System.out.println("-----------------setEmailService");
+
+	}
+	
+	
 	public List<Home> searchByType(String homeType) {
-		required_homes=new ArrayList<Home>();
 		System.out.println("List of homes that have a Type of " +homeType);
-		for(int i=0;i<homesList.size();i++) {
-			Home homeOb = homesList.get(i);
-			String t = homeOb.getType();
-			if((t.toString()).equalsIgnoreCase(homeType)) {
-				required_homes.add(homeOb);
-				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
-			}
-		}
-		return this.required_homes;
-	}
-
-	public List<Home> FindByBelowPrice(Integer int1) {
+		bySpecType spec = new bySpecType(homeType);
 		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that cost below \""+Integer.toString(int1)+"\" per month:");
 		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getPrice()<int1.intValue()) {
+			//Home homeOb = homesList.get(i);
+			//String t = homeOb.getType();
+			if(spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
 				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 		}
+		sendingEmail();
+	
 		return this.required_homes;
 	}
 
-	public List<Home> findHomeByPlacement(String placmentString) {
-		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that is in " +placmentString);
-		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getPlacement().equalsIgnoreCase(placmentString)) {
-				required_homes.add(homesList.get(i));
-				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 
-			}
-		}
-
-		// TODO Auto-generated method stub
-		return this.required_homes;
-
+	private void sendingEmail() {
+		emailService.sendEmail("salahatr9@gmail.com", required_homes);
 	}
 
-	public List<Home> findHomeByMaterial(String MaterialString) {
-		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that its material is " +MaterialString);
-		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getMaterial().equalsIgnoreCase(MaterialString)) {
-				required_homes.add(homesList.get(i));
-				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
-			}
-
-		}
-		return this.required_homes;}
 
 	
-	public List<Home> FindBetweenRangePrice(Integer int1, Integer int2) {
-		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that cost between\""+Integer.toString(int1)+" to "+Integer.toString(int2)+"\" per month:");
-		for(int i=0;i<homesList.size();i++) {
-		if((homesList.get(i).getPrice()>int1.intValue())&&(homesList.get(i).getPrice()<int2.intValue())) {
-			required_homes.add(homesList.get(i));
-			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
-		}
-		}
-		// TODO Auto-generated method stub
-		return this.required_homes;
-	}
 
-	public List<Home> FindByBelowArea(Integer int1) {
-		// TODO Auto-generated method stub
+	
+	
+	public List<Home> findByBelowPrice(Integer priceIn) {
+		System.out.println("List of homes that cost below \""+Integer.toString(priceIn)+"\" per month:");
+ belowSpecPrice spec = new  belowSpecPrice(priceIn);
 		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that its area below "+Integer.toString(int1)+ ":");
 		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getArea()<int1.intValue()) {
+			if( spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
 				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 		}
+		
+		sendingEmail();
+
 		return this.required_homes;
 	}
 
-	public List<Home> FindBetweenRangeArea(Integer int1, Integer int2) {
-		// TODO Auto-generated method stub
+
+	public List<Home> findHomeByPlacement(String placmentString) {
+		System.out.println("List of homes that is in " +placmentString);
+
+		bySpecPlacment spec = new 	bySpecPlacment (placmentString);
 		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that have area between "+Integer.toString(int1)+" to "+Integer.toString(int2));
 		for(int i=0;i<homesList.size();i++) {
-		if((homesList.get(i).getArea()>int1.intValue())&&(homesList.get(i).getArea()<int2.intValue())) {
+			if(spec.isSpecMatched(this, i)) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+
+			}
+		}
+
+		// TODO Auto-generated method stub
+		sendingEmail();
+
+		return this.required_homes;
+
+	}
+
+	
+
+	public List<Home> findHomeByMaterial(String MaterialString) {
+		System.out.println("List of homes that its material is " +MaterialString);
+
+		bySpecMaterial spec = new bySpecMaterial(MaterialString) ;
+		
+		required_homes=new ArrayList<Home>();
+		for(int i=0;i<homesList.size();i++) {
+			if(spec.isSpecMatched(this, i)) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+			}
+
+		}
+		sendingEmail();
+
+		return this.required_homes;}
+
+
+	public List<Home> FindBetweenRangePrice(Integer price1, Integer price2) {
+		System.out.println("List of homes that cost between\""+Integer.toString(price1)+" to "+Integer.toString(price2)+"\" per month:");
+
+		betweenSpecRangePrice spec = new betweenSpecRangePrice(price1,price2); 
+		required_homes=new ArrayList<Home>();
+
+		for(int i=0;i<homesList.size();i++) {
+		if(spec.isSpecMatched(this, i)) {
 			required_homes.add(homesList.get(i));
 			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 		}
 		}
 		// TODO Auto-generated method stub
+		sendingEmail();
+
 		return this.required_homes;
 	}
+
+
+	public List<Home> findByBelowArea(Integer area) {
+		System.out.println("List of homes that its area below "+Integer.toString(area)+ ":");
+
+		bySpecBelowArea spec = new bySpecBelowArea (area);
+		
+		required_homes=new ArrayList<Home>();
+		for(int i=0;i<homesList.size();i++) {
+			if(spec.isSpecMatched(this, i)) {
+				required_homes.add(homesList.get(i));
+				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+			}
+		}
+		sendingEmail();
+
+		return this.required_homes;
+	}
+
+
+	public List<Home> FindBetweenRangeArea(Integer area1, Integer area2) {
+		System.out.println("List of homes that have area between "+Integer.toString(area1)+" to "+Integer.toString(area2));
+
+		betweenSpecRangeArea spec = new betweenSpecRangeArea(area1, area2);
+		
+		
+		required_homes=new ArrayList<Home>();
+		for(int i=0;i<homesList.size();i++) {
+		if(spec.isSpecMatched(this, i)) {
+			required_homes.add(homesList.get(i));
+			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+		}
+		}
+		// TODO Auto-generated method stub
+		sendingEmail();
+
+		return this.required_homes;
+	}
+
 
 	public List<Home> searchByLeaseLength(String string) {
 		// TODO Auto-generated method stub
+		System.out.println("List of homes that its lease length is " +string);
+
 		String len = string;
 		int length;
 		if(len.equalsIgnoreCase("short term_6 months"))
 			length=6;
 		else length=12;
+		
+		bySpecLeaseLength spec = new bySpecLeaseLength(length);
 		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that its lease length is " +string);
 		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getLease_length()==length) {
+			if(spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
 				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 
 		}
+		sendingEmail();
+
 		return this.required_homes;
 	}
 
+
 	public List<Home> searchByAmenities(String string) {
-		// TODO Auto-generated method stub
-		required_homes=new ArrayList<Home>();
 		String str[]=string.split(",");
 		
 		//List<String> AnList = new ArrayList<String>();
 		//AnList = Arrays.asList(str);
 		System.out.println("List of homes that have "+string+ "as Amenities is:" );
+		
+		required_homes=new ArrayList<Home>();
 		for(int i=0;i<homesList.size();i++) {
 			String am[] = homesList.get(i).getAmenitiesArray();
 			if(str.length== homesList.get(i).getAmenitiesArray().length)
@@ -209,59 +282,76 @@ public class finderApp {
 
 		}
 		
-		
+		sendingEmail();
+
 		return this.required_homes;
 	}
 
 	public List<Home> FindByNumberofbathrooms(Integer Numberofbathrooms) {
+		System.out.println("List of homes that has Numberofbathrooms of  \""+Integer.toString(Numberofbathrooms)+"\" ");
+bySpecBedRathroom spec = new bySpecBedRathroom (Numberofbathrooms);
+		
+		
 		required_homes=new ArrayList<Home>();
-	System.out.println("List of homes that has Numberofbathrooms of  \""+Integer.toString(Numberofbathrooms)+"\" ");
 	for(int i=0;i<homesList.size();i++) {
-		if(homesList.get(i).getNo_of_bathrooms()==Numberofbathrooms.intValue()) {
+		if(spec.isSpecMatched(this, i)) {
 			required_homes.add(homesList.get(i));
 			System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 		}
 	}
+	sendingEmail();
+
 	return this.required_homes;
 }
 
+
 	public List<Home> FindByNumberofbedrooms(Integer Numberofbedrooms) {
-		// TODO Auto-generated method stub
-		required_homes=new ArrayList<Home>();
 		System.out.println("List of homes that has Numberofbedrooms of  \""+Integer.toString(Numberofbedrooms)+"\" ");
+
+		BySpecBedrooms spec = new BySpecBedrooms(Numberofbedrooms);
+		
+		required_homes=new ArrayList<Home>();
 		for(int i=0;i<homesList.size();i++) {
-			if(homesList.get(i).getNo_of_bedrooms()==Numberofbedrooms.intValue()) {
+			if(spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
 				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 		}
+		sendingEmail();
+
 		return this.required_homes;	}
 
+
 	public List<Home> FindByallow(String str) {
-		boolean allow;
+		boolean allow = false;
 		if(str.equalsIgnoreCase("yes"))
 		{
 			
 			allow=true;
 			
 		}
-		else {
-			allow=false;
-		}
+		
+		System.out.println("List of homes that has pets premisstion as  \""+str+"\" ");
+ByAllowBits spec = new ByAllowBits(allow);
+		
 		
 		required_homes=new ArrayList<Home>();
-		System.out.println("List of homes that has pets premisstion as  \""+str+"\" ");
 		for(int i=0;i<homesList.size();i++) {
-			if((homesList.get(i).isPets() && allow)||(!homesList.get(i).isPets() && !allow)) {
+			if(spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
 				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 		}
+		sendingEmail();
+
 		return this.required_homes;
 	}
+
 
 	
 	
 	
 	
+	
 }
+

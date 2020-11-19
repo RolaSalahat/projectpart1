@@ -2,32 +2,45 @@ package projectPart1;
 
 import static org.junit.Assert.assertTrue;
 
-import java.awt.List;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.mockito.Mockito.*;
+
+
 public class searchHomeSteps {
+
 	private Integer price , price1 , price2;
 	private  java.util.List<Home> required_homes;
 	private String searchedByString;
-	private String homeType ;
 	boolean allow;
-	private int num=1;
 	private finderApp finder;
+	private mockEmailHolder mockWebHolder;
+	WebEmailService webEmail;
 	private Integer area , area1 , area2;
 	int length;
-	int Numberofbathrooms ; 
+	int Numberofbathrooms ;
+	
 	java.util.List<String> AnList = new ArrayList<String>();
+	
+	//public searchHomeSteps(finderApp finder ,mockEmailHolder holder  ) {
+		//this.finder = finder;
+		
+		
+	//}
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
 			System.out.println("new Scenario");
 
-		    finder =new finderApp(data_table);
+		    finder= new finderApp(data_table);
+		    mockWebHolder = new mockEmailHolder (finder);
 		    //throw new io.cucumber.java.PendingException();
 		}
 
@@ -38,7 +51,10 @@ public class searchHomeSteps {
 		//	System.out.println("part1");
 
 			searchedByString = string;
-			required_homes = finder.searchByType(string); // return list of homes
+			required_homes = finder.searchByType(string);
+              //webEmail = new WebEmailService();
+              
+			// return list of homes
 		    // Write code here that turns the phrase above into concrete actions
 		    //throw new io.cucumber.java.PendingException();
 		}
@@ -49,17 +65,20 @@ public class searchHomeSteps {
 
 			for(int i=0;i<required_homes.size();i++) {
 				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
-
+				//webEmail.sendEmail("salahatr9@gmail.com", required_homes);
 		    // Write code here that turns the phrase above into concrete actions
 		   // throw new io.cucumber.java.PendingException();
 		}
 		}
 		
+		
+		
 		@When("I search about home with price less than {int}")
 		public void iSearchAboutHomeByBelowprice(Integer int1){
 		    // Write code here that turns the phrase above into concrete actions
 			this.price=int1;
-			required_homes=finder.FindByBelowPrice(int1);
+			required_homes=finder.findByBelowPrice(int1);
+		
 		   
 		}
 
@@ -138,7 +157,7 @@ public class searchHomeSteps {
 		public void iSearchAboutHomeByBelowArea(Integer int1){
 		    // Write code here that turns the phrase above into concrete actions
 			this.area=int1;
-			required_homes=finder.FindByBelowArea(int1);
+			required_homes=finder.findByBelowArea(int1);
 		   
 		}
 
@@ -303,6 +322,10 @@ public class searchHomeSteps {
 			}
 			}
 		
-		
+			@And("email with the result should be sent to the user {string}")
+			public void emailtouser(String email) {
+		verify(mockWebHolder.getEmailService(),times(1)).sendEmail(email,required_homes);
+				
+			}
 
 }
