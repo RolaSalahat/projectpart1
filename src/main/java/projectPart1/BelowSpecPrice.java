@@ -1,4 +1,4 @@
-package project.part2;
+package projectPart1;
 
 public class BelowSpecPrice implements GeneralSpec {
 

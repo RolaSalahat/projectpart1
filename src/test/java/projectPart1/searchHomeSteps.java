@@ -11,10 +11,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import project.part2.FinderApp;
-import project.part2.Home;
-import project.part2.MockEmailHolder;
-import project.part2.WebEmailService;
 
 import static org.mockito.Mockito.*;
 
@@ -294,7 +290,8 @@ public class searchHomeSteps {
 			
 		
 			@And("email with the result should be sent to the user {string}")
-			public void emailtouser(String email) {
+			public void emailtouser(String email) {	
+				System.out.println(email);
 		verify(mockWebHolder.getEmailService(),times(1)).sendEmail(email,required_homes);
 				
 			}

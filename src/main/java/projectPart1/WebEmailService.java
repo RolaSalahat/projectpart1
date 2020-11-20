@@ -1,4 +1,4 @@
-package project.part2; 
+package projectPart1; 
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -21,7 +21,7 @@ public class WebEmailService {
 	public void sendEmail(String email , List<Home> homesIn) { 
 		String to = email;
 
-	      String from = "ysaberkh@gmail.com";
+	      String from = "hayasam@najah.edu";
 	      final String username = "49675f460af668";
 	      final String password = "8fe8ef0a6834b5";
 

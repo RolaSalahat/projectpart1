@@ -66,12 +66,14 @@ Given  these homes are contained in the system
      When I search about home with 2 bathrooms  
      Then A list of homes that matches the bathrooms specification should be returned and printed on the console
        And email with the result should be sent to the user "salahatr9@gmail.com"
+
      
      
       Scenario: Search about home by number of  Allow Pets
      When I search about home that "NO" allow pets  
      Then A list of homes that matches Allow Pets specification should be returned and printed on the console
        And email with the result should be sent to the user "salahatr9@gmail.com"
+
      
      
      

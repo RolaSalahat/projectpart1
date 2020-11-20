@@ -1,4 +1,4 @@
-package project.part2;
+package projectPart1;
 
 
 
@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.*;
+
 
 
 public class FinderApp {
@@ -180,7 +181,7 @@ public class FinderApp {
 		}
 		
 		
-
+		sendingEmail();
 		return this.required_homes;
 	}
 
