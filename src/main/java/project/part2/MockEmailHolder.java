@@ -1,4 +1,4 @@
-package projectPart1;
+package project.part2;
 
 import static org.mockito.Mockito.mock;
 

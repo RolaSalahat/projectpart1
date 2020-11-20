@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="projectPart1.BelowSpecPrice" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BelowSpecPrice.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="project.part2.BelowSpecPrice" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BelowSpecPrice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1223" y="140"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="projectPart1.BySpecLeaseLength" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecLeaseLength.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="project.part2.BySpecLeaseLengthh" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecLeaseLength.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1606" y="293"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="projectPart1.BySpecType" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecType.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" nameproject.part2.BySpecTypeype" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecType.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1815" y="-23"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="projectPart1.BySpecBathroom" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecBathroom.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="project.part2.BySpecBathroom" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecBathroom.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1359" y="-23"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="projectPart1.BySpecBedrooms" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecBedrooms.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="project.part2.BySpecBedrooms" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecBedrooms.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1447" y="130"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="projectPart1.BySpecMaterial" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecMaterial.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" nameproject.part2.BySpecMaterialial" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecMaterial.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1577" y="-30"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="projectPart1.BySpecCombination" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecCombination.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="project.part2.BySpecCombination" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecCombination.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="137" width="215" x="2163" y="-95"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="projectPart1.WebEmailService" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/WebEmailService.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" namproject.part2.WebEmailServicevice" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/WebEmailService.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2233" y="283"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="projectPart1.ByAllowBits" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/ByAllowBits.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="project.part2.ByAllowBits" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/ByAllowBits.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1690" y="129"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="10" language="java" name="projectPart1.GeneralSpec" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/GeneralSpec.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="10" language="java" naproject.part2.GeneralSpeclSpec" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/GeneralSpec.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2013" y="310"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="projectPart1.FinderApp" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/FinderApp.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="project.part2.FinderApp" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/FinderApp.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="287" width="249" x="2350" y="133"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="projectPart1.BetweenSpecRangePrice" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BetweenSpecRangePrice.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="project.part2.BetweenSpecRangePrice" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BetweenSpecRangePrice.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1938" y="126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="projectPart1.Home" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/Home.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" nproject.part2.Home2.Home" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/Home.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="216" width="256" x="2316" y="447"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="projectPart1.MockEmailHolder" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/MockEmailHolder.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java"project.part2.MockEmailHolderilHolder" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/MockEmailHolder.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2079" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="projectPart1.BetweenSpecRangeArea" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BetweenSpecRangeArea.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="15" language="java" name="project.part2.BetweenSpecRangeArea" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BetweenSpecRangeArea.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2040" y="-25"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -136,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="projectPart1.BySpecBelowArea" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecBelowArea.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="project.part2.BySpecBelowArea" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecBelowArea.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1660" y="405"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -145,8 +145,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="projectPart1.BySpecPlacment" project="projectPart1" 
-    file="/projectPart1/src/main/java/projectPart1/BySpecPlacment.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="17" language="javaproject.part2.BySpecPlacmentcPlacment" project="projectPart1" 
+    file="/projectPart1/src/main/java/project/part2/BySpecPlacment.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2197" y="115"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -154,100 +154,124 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="18">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <association id="19">    
+  <association id="18">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="20" name="home"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+      <attribute id="19" name="required_homes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="23" name="emailService"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
+  <association id="21">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="22" name="homesList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="25">    
-    <end type="SOURCE" refId="15"/>    
+  <realization id="24">    
+    <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <realization id="26">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="27">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
+  <association id="25">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="26" name="home">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <realization id="28">    
-    <end type="SOURCE" refId="6"/>    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
   <realization id="29">    
-    <end type="SOURCE" refId="17"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
   <association id="30">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="31" name="emailService"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+      <attribute id="31" name="emailService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="34" name="required_homes"/>      
-      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="36">    
+  <realization id="33">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="34">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <association id="37">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="38" name="homesList"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+  <realization id="35">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="36">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="37" name="emailService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
+  <realization id="39">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="40">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="41">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="42">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="43">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="44">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="41" name="finder"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
+      <attribute id="45" name="finder">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="43">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="44">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="45">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="46">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
   <realization id="47">    
-    <end type="SOURCE" refId="7"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

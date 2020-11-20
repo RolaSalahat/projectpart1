@@ -1,4 +1,4 @@
-package projectPart1; 
+package project.part2; 
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -8,7 +8,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 
 import java.util.*; 
 import java.util.logging.*;
@@ -20,7 +19,6 @@ public class WebEmailService {
 
 
 	public void sendEmail(String email , List<Home> homesIn) { 
-		System.out.print("hiii");
 		String to = email;
 
 	      String from = "ysaberkh@gmail.com";

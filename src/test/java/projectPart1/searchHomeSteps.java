@@ -11,6 +11,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import project.part2.FinderApp;
+import project.part2.Home;
+import project.part2.MockEmailHolder;
+import project.part2.WebEmailService;
 
 import static org.mockito.Mockito.*;
 
@@ -30,11 +34,7 @@ public class searchHomeSteps {
 	
 	java.util.List<String> AnList = new ArrayList<String>();
 	
-	//public searchHomeSteps(finderApp finder ,mockEmailHolder holder  ) {
-		//this.finder = finder;
-		
-		
-	//}
+	
 		@Given("these homes are contained in the system")
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
 			System.out.println("new Scenario");
@@ -52,20 +52,14 @@ public class searchHomeSteps {
 
 			searchedByString = string;
 			required_homes = finder.searchByType(string);
-              //webEmail = new WebEmailService();
-              
-			// return list of homes
-		    // Write code here that turns the phrase above into concrete actions
-		    //throw new io.cucumber.java.PendingException();
+            
 		}
 		
 		@Then("A list of homes that matches the  type specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheTypeSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		//System.out.println("part1");
 
 			for(int i=0;i<required_homes.size();i++) {
-        equals(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
-				//webEmail.sendEmail("salahatr9@gmail.com", required_homes);
+				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
 		}
 		}
 		
@@ -173,7 +167,6 @@ public class searchHomeSteps {
 
 		@Then("A list of homes that matches the area range specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheRangeAreaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		    // Write code here that turns the phrase above into concrete actions
 			for(int i=0;i<required_homes.size();i++) {
 		assertTrue((required_homes.get(i).getArea()>this.area1) &&(required_homes.get(i).getArea()<this.area2));
 		
@@ -216,8 +209,7 @@ public class searchHomeSteps {
 
 			@When("I search about home with {string} as Amenities")
 			public void iSearchAboutHomeWithAmenitiesAs(String string) {
-			    // Write code here that turns the phrase above into concrete actions
-			    //throw new io.cucumber.java.PendingException();
+			    
 				searchedByString = string;
 				String str[]=string.split(",");
 				AnList = Arrays.asList(str);
@@ -252,7 +244,6 @@ public class searchHomeSteps {
 
 			@When("I search about home with {int} bathrooms")
 			public void iSearchAboutHomeByNumberofbathrooms(Integer int1) {
-			    // Write code here that turns the phrase above into concrete actions
 				this.Numberofbathrooms=int1;
 				required_homes=finder.findByNumberofbathrooms(int1);
 			}
@@ -282,7 +273,7 @@ public class searchHomeSteps {
 			@Then("A list of homes that matches Allow Pets specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchespetsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 				for(int i=0;i<required_homes.size();i++) {
-					equals((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
+					assertTrue((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
 			}
 			}
 			

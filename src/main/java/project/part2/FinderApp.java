@@ -1,4 +1,4 @@
-package projectPart1;
+package project.part2;
 
 
 
@@ -94,6 +94,8 @@ public class FinderApp {
 	public List<Home> findByBelowPrice(Integer priceIn) {
 		logger.info("List of homes that cost below \""+Integer.toString(priceIn)+"\" per month:");
  GeneralSpec spec = new  BelowSpecPrice(priceIn);
+	
+   
 		return bySpec(spec);
 	}
 
@@ -159,7 +161,7 @@ public class FinderApp {
 
 	public List<Home> searchByAmenities(String amString) {
 		
-		String str[]=amString.split(",");
+		String []str=amString.split(",");
 		
 		logger.info("List of homes that have "+amString+ "as Amenities is:" );
 		
@@ -177,7 +179,7 @@ public class FinderApp {
 
 		}
 		
-		sendingEmail();
+		
 
 		return this.required_homes;
 	}

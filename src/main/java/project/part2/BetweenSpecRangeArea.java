@@ -1,4 +1,4 @@
-package projectPart1;
+package project.part2;
 
 public class BetweenSpecRangeArea implements GeneralSpec {
 
