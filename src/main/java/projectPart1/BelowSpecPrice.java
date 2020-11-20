@@ -1,19 +1,18 @@
 package projectPart1;
 
-public class belowSpecPrice {
+public class BelowSpecPrice implements GeneralSpec {
 
 	private Integer priceIn;
 
-	public belowSpecPrice(Integer priceIn) {
+	public BelowSpecPrice(Integer priceIn) {
 		this.priceIn = priceIn;
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getPriceIn() {
 		return priceIn;
 	}
 
-	boolean isSpecMatched(finderApp finderApp, int i) {
+	public boolean isSpecMatched(FinderApp finderApp, int i) {
 		return finderApp.homesList.get(i).getPrice()< getPriceIn().intValue();
 	}
 

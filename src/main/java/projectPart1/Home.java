@@ -3,7 +3,7 @@ package projectPart1;
 public class Home {
 	
 	
-	private int id , price ,area , no_of_bedrooms,no_of_bathrooms , lease_length;
+	private int id , price ,area , noOfBedrooms,noOfBathrooms , leaseLen;
 	private boolean pets;
 	private String type;
 	private java.util.List<String>  amenities;
@@ -16,18 +16,18 @@ public class Home {
 		this.id=id;
 		this.type=type;
 	}
-	public Home(int id,String type,String material,String placement,boolean pets,java.util.List<String> amenities_List,int price,int area,int bedrooms,int bathrooms,int leaselength) 
+	public Home(int id,String type,String material,String placement,boolean pets,java.util.List<String> amenitiesList,int price,int area,int bedrooms,int bathrooms,int leaselength) 
 		{ this.id=id;
 		this.placement=placement;
 		this.material=material;
 		this.area=area;
 		this.price=price;
-		this.no_of_bedrooms=bedrooms;
-		this.no_of_bathrooms=bathrooms;
+		this.noOfBedrooms=bedrooms;
+		this.noOfBathrooms=bathrooms;
 		this.pets=pets;
 		this.type=type;
-		this.lease_length=leaselength;
-		this.amenities=amenities_List;
+		this.leaseLen=leaselength;
+		this.amenities=amenitiesList;
 		
 		int size =amenities.size();
 		 AmenitiesArray= new String[size];
@@ -41,13 +41,12 @@ public class Home {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 	
 		return "[Home ID = "+id+" Placement = "+placement+
 				" Material = "+material+" Area = "+area+" price = "+price+
-				" bedrooms= "+no_of_bedrooms+" bathrooms= "+no_of_bathrooms+
+				" bedrooms= "+noOfBedrooms+" bathrooms= "+noOfBathrooms+
 				" pets allowed  = "+pets+" type = "+type+
-				" leaselength = "+lease_length+" amenties = "+amenities.toString()+"]"
+				" leaselength = "+leaseLen+" amenties = "+amenities.toString()+"]"
 				;
 	}
 	
@@ -57,16 +56,16 @@ public class Home {
 		return id;
 	}
 
-	public int getNo_of_bedrooms() {
-		return no_of_bedrooms;
+	public int getNumBedrooms() {
+		return noOfBedrooms;
 	}
 
-	public int getLease_length() {
-		return lease_length;
+	public int getLeaselength() {
+		return leaseLen;
 	}
 
-	public int getNo_of_bathrooms() {
-		return no_of_bathrooms;
+	public int getNumOfbathrooms() {
+		return noOfBathrooms;
 	}
 	
 

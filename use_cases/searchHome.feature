@@ -73,7 +73,13 @@ Given  these homes are contained in the system
      Then A list of homes that matches Allow Pets specification should be returned and printed on the console
        And email with the result should be sent to the user "salahatr9@gmail.com"
      
-     
-     
-     
-    
+       Scenario: Search about home by specific combination
+      When I search about home that have the combination of "city,400,Apartment,brike,600,12,4,2,No,0,300,0,600"
+       Then A list of homes that matches combination specification should be returned and printed on the console
+      
+       
+       
+       
+       
+       
+       

@@ -1,12 +1,11 @@
 package projectPart1;
 
-public class bySpecMaterial {
+public class BySpecMaterial implements GeneralSpec {
 
 	private String materialString;
 
-	public bySpecMaterial(String materialString) {
+	public BySpecMaterial(String materialString) {
 		this.materialString = materialString;
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getMaterialString() {
@@ -15,7 +14,7 @@ public class bySpecMaterial {
 	
 	
 
-	boolean isSpecMatched(finderApp finderApp, int i) {
+	public boolean isSpecMatched(FinderApp finderApp, int i) {
 		return finderApp.homesList.get(i).getMaterial().equalsIgnoreCase(getMaterialString());
 	}
 }

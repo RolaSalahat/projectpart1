@@ -1,12 +1,11 @@
 package projectPart1;
 
-public class bySpecPlacment {
+public class BySpecPlacment implements GeneralSpec{
 
 	private String placmentString;
 
-	public bySpecPlacment(String placmentString) {
+	public BySpecPlacment(String placmentString) {
 		this.placmentString = placmentString;
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getPlacmentString() {
@@ -14,7 +13,7 @@ public class bySpecPlacment {
 	}
 
 	
-	boolean isSpecMatched(finderApp finderApp, int i) {
+	public boolean isSpecMatched(FinderApp finderApp, int i) {
 		return finderApp.homesList.get(i).getPlacement().equalsIgnoreCase(getPlacmentString());
 	}
 

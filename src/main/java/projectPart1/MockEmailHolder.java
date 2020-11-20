@@ -3,12 +3,12 @@ package projectPart1;
 import static org.mockito.Mockito.mock;
 
 
-public class mockEmailHolder {
+public class MockEmailHolder {
 	
 private WebEmailService emailService = mock(WebEmailService.class);
 //private WebEmailService emailService  = new WebEmailService();
 
-public mockEmailHolder(finderApp finder) {
+public MockEmailHolder(FinderApp finder) {
 	
 	finder.setEmailService(emailService);
 	

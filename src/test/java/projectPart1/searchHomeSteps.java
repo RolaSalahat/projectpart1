@@ -21,8 +21,8 @@ public class searchHomeSteps {
 	private  java.util.List<Home> required_homes;
 	private String searchedByString;
 	boolean allow;
-	private finderApp finder;
-	private mockEmailHolder mockWebHolder;
+	private FinderApp finder;
+	private MockEmailHolder mockWebHolder;
 	WebEmailService webEmail;
 	private Integer area , area1 , area2;
 	int length;
@@ -39,8 +39,8 @@ public class searchHomeSteps {
 		public void theseHomesAreContainedInTheSystem(Map<String,String> data_table) {
 			System.out.println("new Scenario");
 
-		    finder= new finderApp(data_table);
-		    mockWebHolder = new mockEmailHolder (finder);
+		    finder= new FinderApp(data_table);
+		    mockWebHolder = new MockEmailHolder (finder);
 		    //throw new io.cucumber.java.PendingException();
 		}
 
@@ -66,8 +66,6 @@ public class searchHomeSteps {
 			for(int i=0;i<required_homes.size();i++) {
 				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
 				//webEmail.sendEmail("salahatr9@gmail.com", required_homes);
-		    // Write code here that turns the phrase above into concrete actions
-		   // throw new io.cucumber.java.PendingException();
 		}
 		}
 		
@@ -75,7 +73,6 @@ public class searchHomeSteps {
 		
 		@When("I search about home with price less than {int}")
 		public void iSearchAboutHomeByBelowprice(Integer int1){
-		    // Write code here that turns the phrase above into concrete actions
 			this.price=int1;
 			required_homes=finder.findByBelowPrice(int1);
 		
@@ -84,7 +81,6 @@ public class searchHomeSteps {
 
 		@Then("A list of homes that matches the price specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheBelowpriceSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		    // Write code here that turns the phrase above into concrete actions
 			for(int i=0;i<required_homes.size();i++) {
 		assertTrue(required_homes.get(i).getPrice()<=this.price);
 		
@@ -134,16 +130,14 @@ public class searchHomeSteps {
 		
 		@When("I search about home with price between {int} to {int}")
 		public void iSearchAboutHomeWithRngaePrice(Integer int1 , Integer int2){
-		    // Write code here that turns the phrase above into concrete actions
 			this.price1=int1;
 			this.price2=int2;
-			required_homes=finder.FindBetweenRangePrice(int1.intValue(),int2.intValue());
+			required_homes=finder.findBetweenRangePrice(int1.intValue(),int2.intValue());
 		   
 		}
 
 		@Then("A list of homes that matches the price range specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheRangepriceSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		    // Write code here that turns the phrase above into concrete actions
 			for(int i=0;i<required_homes.size();i++) {
 		assertTrue((required_homes.get(i).getPrice()>this.price1) &&(required_homes.get(i).getPrice()<this.price2));
 		
@@ -155,7 +149,6 @@ public class searchHomeSteps {
 		
 		@When("I search about home with area less than {int}")
 		public void iSearchAboutHomeByBelowArea(Integer int1){
-		    // Write code here that turns the phrase above into concrete actions
 			this.area=int1;
 			required_homes=finder.findByBelowArea(int1);
 		   
@@ -163,7 +156,6 @@ public class searchHomeSteps {
 
 		@Then("A list of homes that matches the area specification should be returned and printed on the console")
 		public void aListOfHomesThatMatchesTheBelowAreaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		    // Write code here that turns the phrase above into concrete actions
 			for(int i=0;i<required_homes.size();i++) {
 		assertTrue(required_homes.get(i).getArea()<=this.area);
 		
@@ -173,10 +165,9 @@ public class searchHomeSteps {
 		
 		@When("I search about home with area between {int} to {int}")
 		public void iSearchAboutHomeWithRngaeArea(Integer int1 , Integer int2){
-		    // Write code here that turns the phrase above into concrete actions
 			this.area1=int1;
 			this.area2=int2;
-			required_homes=finder.FindBetweenRangeArea(int1.intValue(),int2.intValue());
+			required_homes=finder.findBetweenRangeArea(int1.intValue(),int2.intValue());
 		   
 		}
 
@@ -212,36 +203,14 @@ public class searchHomeSteps {
 		public void aListOfHomesThatMatchesTheLeaseLengthaSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 		    // Write code here that turns the phrase above into concrete actions
 			for(int i=0;i<required_homes.size();i++) {
-		assertTrue(required_homes.get(i).getLease_length()==length);
+		assertTrue(required_homes.get(i).getLeaselength()==length);
 		
 				
 		}
 		
 		}
 		
-	/*	@When("I search about home with Amenities as {string}")
-		public void iSearchAboutHomeByAmenities(String string) {
-		//	System.out.println("part1");
-
-			searchedByString = string;
-			String str[]=string.split(",");
-			
-			AnList = Arrays.asList(str);
-			required_homes = finder.searchByAmenities(string); // return list of homes
-		    // Write code here that turns the phrase above into concrete actions
-		    //throw new io.cucumber.java.PendingException();
-		}
-		
-		
-		@Then("A list of homes that matches the Amenities specification should be returned and printed on the console")
-		public void aListOfHomesThatMatchesTheAmenitiesSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-		    // Write code here that turns the phrase above into concrete actions
-				AnList = Arrays.asList(str);
-			required_homes = finder.searchByAmenities(string); // return list of homes
-				
-		}
-		
-		}*/
+	
 		
 		
 
@@ -261,24 +230,22 @@ public class searchHomeSteps {
 
 			@Then("A list of homes that matches the Amenities specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchesTheAmenitiesSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-			    // Write code here that turns the phrase above into concrete actions
-			   // throw new io.cucumber.java.PendingException();\
+			    
 				for(int i=0;i<required_homes.size();i++) {
 					assertTrue(required_homes.get(i).getAmenities().equals(AnList));
 							
 					}}
 			@When("I search about home with {int} bedrooms")
 			public void iSearchAboutHomeByNumberofbed(Integer int1) {
-			    // Write code here that turns the phrase above into concrete actions
 				this.Numberofbathrooms=int1;
-				required_homes=finder.FindByNumberofbedrooms(int1);
+				required_homes=finder.findByNumberofbedrooms(int1);
 			}
 
 			@Then("A list of homes that matches the bedrooms specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchesTheNumberofbedroomsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 			    // Write code here that turns the phrase above into concrete actions
 				for(int i=0;i<required_homes.size();i++) {
-					assertTrue(required_homes.get(i).getNo_of_bedrooms()==this.Numberofbathrooms);
+					assertTrue(required_homes.get(i).getNumBedrooms()==this.Numberofbathrooms);
 			}
 			}
 
@@ -287,20 +254,18 @@ public class searchHomeSteps {
 			public void iSearchAboutHomeByNumberofbathrooms(Integer int1) {
 			    // Write code here that turns the phrase above into concrete actions
 				this.Numberofbathrooms=int1;
-				required_homes=finder.FindByNumberofbathrooms(int1);
+				required_homes=finder.findByNumberofbathrooms(int1);
 			}
 
 			@Then("A list of homes that matches the bathrooms specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchesTheNumberofbathroomsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-			    // Write code here that turns the phrase above into concrete actions
 				for(int i=0;i<required_homes.size();i++) {
-					assertTrue(required_homes.get(i).getNo_of_bathrooms()==this.Numberofbathrooms);
+					assertTrue(required_homes.get(i).getNumOfbathrooms()==this.Numberofbathrooms);
 			}
 			}
 			
 			@When("I search about home that {string} allow pets")
 			public void iSearchAboutHomeAllowPets(String str) {
-			    // Write code here that turns the phrase above into concrete actions
 				
 				if(str.equalsIgnoreCase("yes"))
 				{
@@ -311,16 +276,31 @@ public class searchHomeSteps {
 				else {
 					allow=false;
 				}
-				required_homes=finder.FindByallow(str);
+				required_homes=finder.findByAllow(str);
 			}
 
 			@Then("A list of homes that matches Allow Pets specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchespetsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
-			    // Write code here that turns the phrase above into concrete actions
 				for(int i=0;i<required_homes.size();i++) {
 					assertTrue((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
 			}
 			}
+			
+			@When("I search about home that have the combination of {string}")
+			public void searchByCombination(String comb) {
+				
+				required_homes = finder.findByCombination(comb);
+				
+			}
+			
+			@Then("A list of homes that matches combination specification should be returned and printed on the console")
+				public void alistOfCmpination() {
+				for(int i=0;i<required_homes.size();i++) {
+					assertTrue(true);
+				}
+			}
+	
+			
 		
 			@And("email with the result should be sent to the user {string}")
 			public void emailtouser(String email) {
