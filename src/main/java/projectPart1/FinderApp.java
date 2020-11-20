@@ -7,9 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.*;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 public class FinderApp {
 	List<Home> homesList=new ArrayList<Home>();
@@ -17,7 +16,7 @@ public class FinderApp {
 	private  WebEmailService emailService;
 	private Home home;
 	Integer price;
-	final static Logger logger =Logger.getLogger(FinderApp.class);
+	final static Logger logger =Logger.getLogger(FinderApp.class.getName());
 	String amenitiesArray [];
 	
 	public FinderApp(Map<String,String> dataaTable) {
@@ -31,21 +30,20 @@ public class FinderApp {
 		String placement ;
 		String [] keyArray ;
 		String [] valuesArray ;
-		//final static Logger logger = Logger.getLogger(FinderApp.class);
 		
 		boolean petsAvailable;
 		
 		Iterator<Entry<String, String>> data=dataaTable.entrySet().iterator();
           while(data.hasNext()) {
 			id++;
-		 List<String> amenities_List=new ArrayList<String>();
+		 List<String> amenitiesList=new ArrayList<String>();
 			Entry<String,String> nextdata=data.next();
 			keyArray=nextdata.getKey().split("_"); // for keys in background
 			amenitiesArray=keyArray[4].split(",");
 			
 			valuesArray=nextdata.getValue().split("_"); // for values
 			for(int i=0;i<amenitiesArray.length;i++) {
-				amenities_List.add(amenitiesArray[i]);
+				amenitiesList.add(amenitiesArray[i]);
 				
 			                                            }
 			
@@ -65,12 +63,12 @@ public class FinderApp {
 			numOfBedrooms = Integer.parseInt(valuesArray[2]);
 			numOfBathrooms= Integer.parseInt(valuesArray[3]);
 			leasLength= Integer.parseInt(valuesArray[4]);
-			home = new Home (id,homeType ,material,placement,petsAvailable,amenities_List, price , area, numOfBedrooms, numOfBathrooms ,leasLength);
+			home = new Home (id,homeType ,material,placement,petsAvailable,amenitiesList, price , area, numOfBedrooms, numOfBathrooms ,leasLength);
 			homesList.add(home);
 			
 			}
 			catch(Exception e) {
-				logger.log(Level.INFO, "exption");
+				logger.info("exption");
 			}
 			
 		
@@ -85,7 +83,7 @@ public class FinderApp {
 	
 	
 	public List<Home> searchByType(String homeType) {
-		System.out.println("List of homes that have a Type of " +homeType);
+		logger.info("List of homes that have a Type of " +homeType);
 		
 		GeneralSpec spec = new BySpecType(homeType);
 		return bySpec(spec);
@@ -94,14 +92,14 @@ public class FinderApp {
 
 	
 	public List<Home> findByBelowPrice(Integer priceIn) {
-		System.out.println("List of homes that cost below \""+Integer.toString(priceIn)+"\" per month:");
+		logger.info("List of homes that cost below \""+Integer.toString(priceIn)+"\" per month:");
  GeneralSpec spec = new  BelowSpecPrice(priceIn);
 		return bySpec(spec);
 	}
 
 
 	public List<Home> findHomeByPlacement(String placmentString) {
-		System.out.println("List of homes that is in " +placmentString);
+		logger.info("List of homes that is in " +placmentString);
 
 		GeneralSpec spec = new 	BySpecPlacment (placmentString);
 		return bySpec(spec);
@@ -111,7 +109,7 @@ public class FinderApp {
 	
 
 	public List<Home> findHomeByMaterial(String materialString) {
-		System.out.println("List of homes that its material is " +materialString);
+		logger.info("List of homes that its material is " +materialString);
 
 		GeneralSpec spec = new BySpecMaterial(materialString) ;
 		
@@ -119,7 +117,7 @@ public class FinderApp {
 
 
 	public List<Home> findBetweenRangePrice(Integer price1, Integer price2) {
-		System.out.println("List of homes that cost between\""+Integer.toString(price1)+" to "+Integer.toString(price2)+"\" per month:");
+		logger.info("List of homes that cost between\""+Integer.toString(price1)+" to "+Integer.toString(price2)+"\" per month:");
 
 		GeneralSpec spec = new BetweenSpecRangePrice(price1,price2); 
 		return bySpec(spec);
@@ -127,7 +125,7 @@ public class FinderApp {
 
 
 	public List<Home> findByBelowArea(Integer area) {
-		System.out.println("List of homes that its area below "+Integer.toString(area)+ ":");
+		logger.info("List of homes that its area below "+Integer.toString(area)+ ":");
 
 		GeneralSpec spec = new BySpecBelowArea (area);
 		
@@ -136,7 +134,7 @@ public class FinderApp {
 
 
 	public List<Home> findBetweenRangeArea(Integer area1, Integer area2) {
-		System.out.println("List of homes that have area between "+Integer.toString(area1)+" to "+Integer.toString(area2));
+		logger.info("List of homes that have area between "+Integer.toString(area1)+" to "+Integer.toString(area2));
 
 		GeneralSpec spec = new BetweenSpecRangeArea(area1, area2);
 		
@@ -146,7 +144,7 @@ public class FinderApp {
 
 
 	public List<Home> searchByLeaseLength(String string) {
-		System.out.println("List of homes that its lease length is " +string);
+		logger.info("List of homes that its lease length is " +string);
 
 		String len = string;
 		int length;
@@ -163,12 +161,11 @@ public class FinderApp {
 		
 		String str[]=amString.split(",");
 		
-		System.out.println("List of homes that have "+amString+ "as Amenities is:" );
+		logger.info("List of homes that have "+amString+ "as Amenities is:" );
 		
-	    bySpecAmenities spec = new bySpecAmenities();
 		required_homes=new ArrayList<Home>();
 		for(int i=0;i<homesList.size();i++) {
-			String am[] = homesList.get(i).getAmenitiesArray();
+			String []am = homesList.get(i).getAmenitiesArray();
 			if(str.length== homesList.get(i).getAmenitiesArray().length)
 				
 			{for(int k=0; k<str.length ;k++) {
@@ -176,7 +173,7 @@ public class FinderApp {
 				     required_homes.add(homesList.get(i));
 			}          }
 
-		     System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));}
+			logger.info(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));}
 
 		}
 		
@@ -186,7 +183,7 @@ public class FinderApp {
 	}
 
 	public List<Home> findByNumberofbathrooms(Integer numberofbathrooms) {
-		System.out.println("List of homes that has Numberofbathrooms of  \""+Integer.toString(numberofbathrooms)+"\" ");
+		logger.info("List of homes that has Numberofbathrooms of  \""+Integer.toString(numberofbathrooms)+"\" ");
 		 GeneralSpec spec = new BySpecBathroom (numberofbathrooms);
 		
 		
@@ -195,7 +192,7 @@ public class FinderApp {
 
 
 	public List<Home> findByNumberofbedrooms(Integer numberofbedrooms) {
-		System.out.println("List of homes that has Numberofbedrooms of  \""+Integer.toString(numberofbedrooms)+"\" ");
+		logger.info("List of homes that has Numberofbedrooms of  \""+Integer.toString(numberofbedrooms)+"\" ");
 
 		GeneralSpec spec = new BySpecBedrooms(numberofbedrooms);
 		
@@ -211,7 +208,7 @@ public class FinderApp {
 			
 		}
 		
-		System.out.println("List of homes that has pets premisstion as  \""+str+"\" ");
+		logger.info("List of homes that has pets premisstion as  \""+str+"\" ");
 		
 		
 		GeneralSpec spec = new ByAllowBits(allow);
@@ -221,7 +218,7 @@ public class FinderApp {
 	}
 
 	public List<Home> findByCombination(String combination ){
-		System.out.println("List of homes that has combination as  \""+combination+"\" ");
+		logger.info("List of homes that has combination as  \""+combination+"\" ");
 		
 		String []specList =  combination.split(",");
 		BySpecCombination spec = new BySpecCombination(specList);
@@ -235,7 +232,7 @@ public class FinderApp {
 		for(int i=0;i<homesList.size();i++) {
 			if(spec.isSpecMatched(this, i)) {
 				required_homes.add(homesList.get(i));
-				System.out.println(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
+				logger.info(Integer.toString(required_homes.size())+"-"+" "+homesList.get(i));
 			}
 		}
 		sendingEmail();

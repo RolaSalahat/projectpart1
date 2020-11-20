@@ -3,7 +3,6 @@ package projectPart1;
 public class BySpecCombination implements GeneralSpec {
 	private String[] specList;
 	private boolean isMatched;
-	private Home home;
 	FinderApp finder ;
    int index ;
 

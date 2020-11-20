@@ -1,6 +1,6 @@
 package projectPart1;
 
-public class bySpecAmenities {
+public class BySpecAmenities {
 public boolean isMatched ;
 
 public void setMatched(boolean isMatched) {

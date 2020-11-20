@@ -13,7 +13,7 @@ public class BySpecBelowArea implements GeneralSpec {
 	}
 
 	public boolean isSpecMatched(FinderApp finderApp, int i) {
-		return finderApp.homesList.get(i).getArea()<getArea().intValue();
+		return finderApp.homesList.get(i).getArea()< area.intValue();
 	}
 
 }

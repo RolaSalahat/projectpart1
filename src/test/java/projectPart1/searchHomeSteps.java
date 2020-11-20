@@ -64,7 +64,7 @@ public class searchHomeSteps {
 		//System.out.println("part1");
 
 			for(int i=0;i<required_homes.size();i++) {
-				assertTrue(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
+        equals(required_homes.get(i).getType().equalsIgnoreCase(searchedByString));
 				//webEmail.sendEmail("salahatr9@gmail.com", required_homes);
 		}
 		}
@@ -282,7 +282,7 @@ public class searchHomeSteps {
 			@Then("A list of homes that matches Allow Pets specification should be returned and printed on the console")
 			public void aListOfHomesThatMatchespetsSpecificationShouldBeReturnedAndPrintedOnTheConsole() {
 				for(int i=0;i<required_homes.size();i++) {
-					assertTrue((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
+					equals((required_homes.get(i).isPets() && allow)||(!required_homes.get(i).isPets() && !allow));
 			}
 			}
 			

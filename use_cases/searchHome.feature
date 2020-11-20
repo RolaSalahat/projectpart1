@@ -74,7 +74,7 @@ Given  these homes are contained in the system
        And email with the result should be sent to the user "salahatr9@gmail.com"
      
        Scenario: Search about home by specific combination
-      When I search about home that have the combination of "city,400,Apartment,brike,600,12,4,2,No,0,300,0,600"
+      When I search about home that have the combination of "city,400,Apartment,-,-,-,-,-,-,-,-,-,-"
        Then A list of homes that matches combination specification should be returned and printed on the console
       
        

@@ -11,10 +11,12 @@ import javax.mail.internet.MimeMessage;
 
 
 import java.util.*; 
+import java.util.logging.*;
 
 
 
 public class WebEmailService {
+	final static Logger logger =Logger.getLogger(FinderApp.class.getName());
 
 
 	public void sendEmail(String email , List<Home> homesIn) { 
@@ -62,7 +64,7 @@ public class WebEmailService {
 
 	    Transport.send(message);
 
-	    System.out.println("Sent message successfully....");
+	   logger.info("Sent message successfully....");
 
 	      } catch (MessagingException e) {
 	         throw new RuntimeException(e);
